@@ -18,9 +18,15 @@ public class Main {
 
         System.out.println(myImmutableObj.getSiblings());
 
+
+        MyImmutableClass mySecondImmutableObj = new MyImmutableClass();
+        System.out.println("Objects are equal: " + myImmutableObj.equals(mySecondImmutableObj));
+
         MyImmutableClass.MutableClass mutableObj = myImmutableObj.getMutableObj();
         System.out.println(mutableObj.name);
         mutableObj.name = "New Name";
         System.out.println(mutableObj.name);
+
+        System.out.println("Objects are equal after name change: " + myImmutableObj.equals(mySecondImmutableObj));
     }
 }

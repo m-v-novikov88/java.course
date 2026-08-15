@@ -57,6 +57,25 @@ public final class MyImmutableClass {
     }
 
     public class MutableClass {
-        public String name;
+        public String name = "DefaultName";
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+
+            if (obj == null || this.getClass() != obj.getClass()) {
+                return false;
+            }
+
+            MutableClass myMutableInstance = (MutableClass) obj;
+            return this.name.equals(myMutableInstance.name);
+        }
+
+        @Override
+        public int hashCode () {
+            return Objects.hash(name);
+        }
     }
 }
