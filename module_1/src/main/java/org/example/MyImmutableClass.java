@@ -31,7 +31,11 @@ public final class MyImmutableClass {
     }
 
     public MutableClass getMutableObj() {
-        return mutableField;
+        return new MutableClass(mutableField.name);
+    }
+
+    public void setMutableFieldObjName(String name) {
+        mutableField.name = name;
     }
 
     @Override
@@ -58,6 +62,12 @@ public final class MyImmutableClass {
 
     public class MutableClass {
         public String name = "DefaultName";
+
+        public MutableClass() {}
+
+        public MutableClass(String name) {
+            this.name = name;
+        }
 
         @Override
         public boolean equals(Object obj) {
