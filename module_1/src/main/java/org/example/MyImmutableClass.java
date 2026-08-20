@@ -34,10 +34,6 @@ public final class MyImmutableClass {
         return new MutableClass(mutableField.name);
     }
 
-    public void setMutableFieldObjName(String name) {
-        mutableField.name = name;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -61,12 +57,15 @@ public final class MyImmutableClass {
     }
 
     public class MutableClass {
-        public String name = "DefaultName";
+        private final String DEFAULT_NAME = "Anonymous";
+        private final String name;
 
-        public MutableClass() {}
+        public MutableClass() {
+            this.name = DEFAULT_NAME;
+        }
 
         public MutableClass(String name) {
-            this.name = name;
+            this.name = name == null ? DEFAULT_NAME : name;
         }
 
         @Override

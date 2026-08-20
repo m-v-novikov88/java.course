@@ -21,13 +21,11 @@ public class Main {
         MyImmutableClass mySecondImmutableObj = new MyImmutableClass();
         MyImmutableClass.MutableClass mutableObj = myImmutableObj.getMutableObj();
 
-        System.out.println(mutableObj.name);
-        mutableObj.name = "New Name";
-        System.out.println(mutableObj.name);
-        System.out.println("Objects are equal: " + myImmutableObj.equals(mySecondImmutableObj));
+        // Won't work because the field is private
+        // System.out.println(mutableObj.name);
+        // mutableObj.name = "New Name";
+        // System.out.println(mutableObj.name);
+        // System.out.println("Objects are equal: " + myImmutableObj.equals(mySecondImmutableObj));
 
-        myImmutableObj.setMutableFieldObjName("New Name");
-        System.out.println(myImmutableObj.getMutableObj().name);
-        System.out.println("Objects are equal after name change: " + myImmutableObj.equals(mySecondImmutableObj));
     }
 }
